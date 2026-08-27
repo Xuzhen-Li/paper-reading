@@ -1,0 +1,23 @@
+{
+  "skill_name": "paper-reading",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "/paper-reading\n\n(attached: a journal PDF). Same DOI already noted → stop.",
+      "expected_output": "A new NOTES_DIR markdown note with YAML, terminology ledger, 全文导读, nested main pngs, SI under _figures/<slug>/si/, ≥8 verbatim excerpts, English 写作学习 quotes, lab/related literature, 我的判断, audit --strict pass.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "/paper-reading 润色 2026-wang-yang-1000-chinese-pangenome-nature.md\n\nDo not recrop. Do not change numbers.",
+      "expected_output": "Named note overwritten only after TMP_DIR backup; 导读/判断 more fluent; figures_count and claims unchanged; audit --strict pass.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "/paper-reading\n\n(attached: a bioRxiv PDF, user did not name it as an exception)",
+      "expected_output": "Skip with a one-line reason. No note written.",
+      "files": []
+    }
+  ]
+}

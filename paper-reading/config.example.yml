@@ -1,0 +1,7 @@
+# Copy to config.yml (gitignored) or export the same names as environment variables.
+# Do not put machine-specific absolute paths in committed files.
+
+PAPER_LIB_DIR: /path/to/pdf-library          # read-only PDF root
+NOTES_DIR: /path/to/notes                    # markdown notes (*.md)
+FIGURES_DIR: /path/to/notes/_figures         # cropped figures live here
+TMP_DIR: /path/to/tmp                        # pdftotext, figwork_*, lint JSON
