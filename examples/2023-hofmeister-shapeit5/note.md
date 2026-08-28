@@ -22,6 +22,10 @@ code: "https://github.com/odelaneau/shapeit5 （MIT，全套脚本：phase_commo
 
 > **DOI**: [10.1038/s41588-023-01415-w](https://doi.org/10.1038/s41588-023-01415-w) · *Nat. Genet.* 55, 1243–1249（2023）· CC BY 4.0
 
+![常见位点 scaffold 与 MAC 11–20 SER](figures/scaffold-and-ser.png)
+
+_自制示意。柱高取自文中 Fig. 2 的 MAC 11–20 SER，不是期刊原图。_
+
 ## 分类
 
 

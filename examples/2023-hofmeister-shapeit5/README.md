@@ -6,9 +6,10 @@ A finished `/paper-reading` note on Hofmeister et al. 2023, *Nature Genetics* (C
 
 Paper / 原文: [10.1038/s41588-023-01415-w](https://doi.org/10.1038/s41588-023-01415-w)
 
-This repo ships the Chinese L3 note only. Journal figure crops and the PDF stay out.
+Chinese L3 note plus one original scaffold / SER schematic. Journal figure files and the PDF stay out.
 
-本仓库只放中文 L3 笔记。期刊图裁切和 PDF 不进仓库。
+中文 L3 笔记加一张自制 scaffold / SER 示意。期刊原图和 PDF 不进仓库。
 
-- [note.md](note.md) — L3 note text; figure slots point at the DOI / 三级笔记正文，图位改指 DOI
-- [preview.png](preview.png) — opening screenshot / 开头截图
+- [note.md](note.md) — L3 note / 三级笔记
+- [figures/scaffold-and-ser.png](figures/scaffold-and-ser.png) — original schematic / 自制示意
+- [preview.png](preview.png) — illustrated opening / 图文开头
