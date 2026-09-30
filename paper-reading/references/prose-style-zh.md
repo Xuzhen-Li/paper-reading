@@ -10,7 +10,7 @@ Write a literature card a colleague can reread. Not a Nature article, not a mode
 - 导读第一段是全景段：这篇做了什么、用什么材料和数据、拿到的主结论一句。背景、领域现状放第二段起，不能当开头。
 - 亲本方向写「更像父亲还是更像母亲 / 母本传来的」，不写「像父还是像母」。
 - Transitions come from real relations (cause, contrast, comparison, condition). Do not buy fluency with 此外 / 另一方面 / 在此基础上 / 进一步地.
-- Name the actor: 作者 / Delaneau / SHAPEIT5 / Beagle. Avoid stacked 本文 / 该研究 / 其 / 这表明。不要每段都用「作者」起头。判断段先挡住最容易的误读（读者会当成什么），再写作者实际测到什么。不相容不等于已经知道原因。样张：`AI_lib/articles/古人类演化/evolutionary-rescue.md`。
+- Name the actor: 作者 / Delaneau / SHAPEIT5 / Beagle. Avoid stacked 本文 / 该研究 / 其 / 这表明。不要每段都用「作者」起头。判断段先挡住最容易的误读（读者会当成什么），再写作者实际测到什么。不相容不等于已经知道原因。样张略（仓库不附本机文章路径）。
 
 ## Rhythm tells to break
 
@@ -49,7 +49,7 @@ Do not close with 时代意义 or a second abstract.
 
 先写「不要当成」，再写「可引用」。不要新开 `##` 框、`##` 附录、编辑按。笔记结构仍是速览卡 → 导读 → 数字速查 → 我的判断 → 摘抄。
 
-让步判断（样张 `AI_lib/articles/古人类演化/evolutionary-rescue.md`）：救援是让步，不是证明种群已经被救下来。看到「先下降、再恢复」还不能宣布进化救援；恢复可以有环境变好、迁入等纯生态原因。
+让步判断：救援是让步，不是证明种群已经被救下来。看到「先下降、再恢复」还不能宣布进化救援；恢复可以有环境变好、迁入等纯生态原因。
 
 零假设判断：不相容 ≠ 已知原因。偏离 HWE 只挡住「样本像随机交配的一个群体」；它不告诉你是 Wahlund、近交、分型错误，还是别的哪一种。
 

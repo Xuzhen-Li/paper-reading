@@ -14,7 +14,7 @@ doi: 10.1038/s41588-023-01415-w
 license: CC-BY-4.0
 keywords: [SHAPEIT5, UKB, rare-variant, PBWT, switch-error, imputation, compound-het, LoF, Delaneau]
 figures_note: "Local figure crops are not shipped. See the paper DOI."
-figures_count: 7
+figures_count: 1
 code: "https://github.com/odelaneau/shapeit5 （MIT，全套脚本：phase_common / phase_rare / ligate / switch）；https://odelaneau.github.io/shapeit5 ；Zenodo 10.5281/zenodo.7828479 ；UKB RAP application 66995"
 ---
 
@@ -29,13 +29,13 @@ _自制示意。柱高取自文中 Fig. 2 的 MAC 11–20 SER，不是期刊原�
 ## 分类
 
 
-|     |                                                                                                                                      |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| 系统  | UK Biobank：自报白人英国人（UKB 字段，再经 PCA 确认）的 WGS、WES，以及 Axiom 芯片                                                                            |
-| 领域  | haplotype 定相、稀有变异、基因型 imputation、复合杂合（compound heterozygous）                                                                         |
-| 方法  | 先用 SHAPEIT4 把常见位点定相，得到 haplotype scaffold；稀有位点用 PBWT 挑选 conditioning haplotypes，再按 Li–Stephens 做 imputation 式定相；singleton 按最短 IBD 赋值 |
-| 数据  | WGS 150,119 人 / 603,925,301 位点；WES 452,644 人 / 26,199,614 位点；chr20 评测 n=147,754                                                      |
-| 期刊  | *Nature Genetics* Technical Report（2023）                                                                                             |
+|  |  |
+| --- | --- |
+| 系统 | UK Biobank：自报白人英国人（UKB 字段，再经 PCA 确认）的 WGS、WES，以及 Axiom 芯片 |
+| 领域 | haplotype 定相、稀有变异、基因型 imputation、复合杂合（compound heterozygous） |
+| 方法 | 先用 SHAPEIT4 把常见位点定相，得到 haplotype scaffold；稀有位点用 PBWT 挑选 conditioning haplotypes，再按 Li–Stephens 做 imputation 式定相；singleton 按最短 IBD 赋值 |
+| 数据 | WGS 150,119 人 / 603,925,301 位点；WES 452,644 人 / 26,199,614 位点；chr20 评测 n=147,754 |
+| 期刊 | *Nature Genetics* Technical Report（2023） |
 
 
 
