@@ -17,10 +17,18 @@ export TMP_DIR=/path/to/tmp
 
 ## Install (slash commands only)
 
+From the clone root (`paper-reading/` repo):
+
+```bash
+git clone https://github.com/Xuzhen-Li/paper-reading.git
+cd paper-reading
+```
+
+
 Do **not** also symlink this folder into `~/.cursor/skills/`. The skill sets `disable-model-invocation: true`. A symlink plus commands lists `paper-reading` twice.
 
 ```bash
-PKG=/absolute/path/to/skill-export/paper-reading
+PKG="$(pwd)/paper-reading/paper-reading"
 mkdir -p ~/.cursor/commands
 sed "s|{{SKILL_DIR}}|$PKG|g" "$PKG/commands/paper-reading.md" > ~/.cursor/commands/paper-reading.md
 sed "s|{{SKILL_DIR}}|$PKG|g" "$PKG/commands/精读.md" > ~/.cursor/commands/精读.md

@@ -9,7 +9,7 @@ disable-model-invocation: true
 
 # paper-reading
 
-One call, one note. Default job is **L3 精读** at the quality of the Wang 1KCP / Noraz / Myles tests: a colleague talking through the PDF with figures in place, not a telegram dump and a later “polish”.
+One call, one note. Default job is **L3 精读** at the quality of the public demo (Dong et al. 2023 *Science*, DOI [10.1126/science.add8655](https://doi.org/10.1126/science.add8655)): a colleague talking through the PDF with figures in place, not a telegram dump and a later “polish”.
 
 `SKILL_DIR` = the directory that contains this file.
 
@@ -37,14 +37,14 @@ Resolve `PAPER_LIB_DIR`, `NOTES_DIR`, `FIGURES_DIR`, `TMP_DIR` from, in order:
 
 1. Environment variables of those names
 2. `config.yml` next to this `SKILL.md`, or one directory above the `skills/` folder
-3. If these folders exist, use them (local reading pipeline):
+3. Placeholders (same as `config.example.yml`; copy to `config.yml` or export env vars — do not commit machine paths):
 
 | Name | Default |
 |------|---------|
-| `PAPER_LIB_DIR` | `~/Desktop/read_paper` |
-| `NOTES_DIR` | `~/Desktop/script/AI_lib/papers` |
-| `FIGURES_DIR` | `~/Desktop/script/AI_lib/papers/_figures` |
-| `TMP_DIR` | `~/Desktop/script/AI_lib/projects/read-paper-sweep/tmp` |
+| `PAPER_LIB_DIR` | `/path/to/pdf-library` |
+| `NOTES_DIR` | `/path/to/notes` |
+| `FIGURES_DIR` | `/path/to/notes/_figures` |
+| `TMP_DIR` | `/path/to/tmp` |
 
 `PAPER_LIB_DIR` is **read-only**. Never create, edit, or delete files there. Notes are markdown in `NOTES_DIR`. Figures only under `FIGURES_DIR/<slug>/`. pdftotext, backups, and figwork only in `TMP_DIR`. Do not `rm` an existing note; backup to `TMP_DIR` first. After every write: `ls` the absolute path and `wc -l`.
 

@@ -1,6 +1,6 @@
 # L3 illustrated note — order of work
 
-Lessons from Noraz 2026 (figures) and Myles/Noraz (fluency). Follow this order. Do not invent extra sections.
+Lessons from full L3 demos (figures + fluency). Follow this order. Do not invent extra sections.
 
 ## Paths
 
@@ -28,7 +28,7 @@ Default L3 still crops 3–6 **main** figures, **and** downloads the publisher S
 4. Tables: means / key rows into 数字速查. Do not paste thousand-row sheets. Recompute counts from Data xlsx when IDs are present; if IDs were stripped, say so.
 5. CC BY / CC BY-NC-ND: private note crops OK; do not redistribute adapted figures.
 
-First full SI fold-ins: Wang 1KCP 2026; Hofmeister SHAPEIT5 2023. Prior exceptions cropped ED from the same main PDF (Haak / Fu / Mallick).
+First full SI fold-ins include the public Hofmeister SHAPEIT5 2023 demo. Prefer SI from publisher ESM when it changes a claim; Extended Data already in the main PDF can be cropped from that PDF.
 
 ## Depth without padding
 
