@@ -24,7 +24,7 @@ code: "https://github.com/odelaneau/shapeit5 （MIT，全套脚本：phase_commo
 
 ![常见位点 scaffold 与 MAC 11–20 SER](figures/scaffold-and-ser.png)
 
-_自制示意。柱高取自文中 Fig. 2 的 MAC 11–20 SER，不是期刊原图。_
+_自制示意。柱高取自文中 Fig. 2 的 MAC 11–20 SER。_
 
 ## 分类
 
@@ -148,7 +148,7 @@ UKB 入组平均年龄 56 岁，罕见重症遗传病不该大量进队列。仍
 
 他们把这件事看成生物库尺度筛复合杂合的证明，也当成相位本身的生物学核对。往后可以把 LoF 和错义或调控位点一起筛，burden test 可以带上相位，新测的同人群基因组可以借这套面板贴极稀有位点。Genomics England 那种诊断场景被点名，singleton 的精度仍是限制。同日的 GLIMPSE2 则回答另一半问题：这 150,119 套 haplotype 能不能当低覆盖 imputation 的 reference panel。
 
-补充材料见论文 SI（MOESM1 PDF：Suppl. Figs. 1–4 与 Tables 1–3；MOESM3 xlsx：Supplementary Data 1；MOESM4 xlsx：Fig. 2 source data）。PDF 不进本仓库。
+补充材料见论文 SI（MOESM1 PDF：Suppl. Figs. 1–4 与 Tables 1–3；MOESM3 xlsx：Supplementary Data 1；MOESM4 xlsx：Fig. 2 source data）。
 
 ## 数字速查
 
