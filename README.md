@@ -4,23 +4,27 @@ Cursor skill that turns **one research PDF** into a **Chinese illustrated readin
 
 把一篇研究 PDF，写成一篇中文带图阅读笔记。
 
-**L3** = full guided walkthrough of the paper（全文导读）, not a short abstract card.
+This is a [Cursor](https://cursor.com) Agent slash-command skill (`/paper-reading`). Your PDF library stays on your machine.
 
-This repository is the shareable skill. Your PDF library stays on your machine.
+**L3** means a full guided walkthrough of the paper（全文导读）, not a short abstract card.
+
+Journal figures and publisher PDFs are **not** in this repo (Science / AAAS content stays on the publisher site).
 
 ## Example
 
-**Primary — Dong et al. 2023, *Science*** — [case](examples/2023-dong-grapevine-dual-domestication/README.md)
+**Primary — [Dong et al. 2023, *Science*](examples/2023-dong-grapevine-dual-domestication/README.md)**
 
-*Dual domestications and origin of traits in grapevine evolution* ([10.1126/science.add8655](https://doi.org/10.1126/science.add8655)). Public crop of a local Chinese L3 note. Journal figures and the PDF are **not** in this repo.
+*Dual domestications and origin of traits in grapevine evolution* ([10.1126/science.add8655](https://doi.org/10.1126/science.add8655)). Public crop of a local Chinese L3 note — text only.
 
-**Secondary — Hofmeister et al. 2023, *Nature Genetics*** — [case](examples/2023-hofmeister-shapeit5/README.md)
+**Secondary — [Hofmeister et al. 2023, *Nature Genetics*](examples/2023-hofmeister-shapeit5/README.md)**
 
-SHAPEIT5 rare-variant phasing. The repo keeps one **repo-made** schematic (自制示意图) only (not a journal crop).
+SHAPEIT5 rare-variant phasing. One **repo-made** schematic only（自制示意图）, not a journal crop.
 
 ## Install
 
-Do **not** symlink the folder into `~/.cursor/skills/` (the skill sets `disable-model-invocation: true`; a symlink plus commands would list it twice).
+After install, open a new Cursor Agent chat and run `/paper-reading` (attach a PDF, path, or DOI).
+
+Do **not** symlink this folder into `~/.cursor/skills/` (the skill sets `disable-model-invocation: true`; a symlink plus commands would list it twice).
 
 ```bash
 git clone https://github.com/Xuzhen-Li/paper-reading.git
@@ -42,7 +46,7 @@ export TMP_DIR=/path/to/tmp
 
 ## Use
 
-New agent chat, attach a PDF (or a path / DOI):
+In Cursor Agent chat:
 
 ```text
 /paper-reading
