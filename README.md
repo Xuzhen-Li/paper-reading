@@ -4,39 +4,13 @@
 
 把一篇研究 PDF，写成一篇**中文带图阅读笔记**。
 
-这是 [Cursor](https://cursor.com) Agent 的斜杠命令技能（`/paper-reading`）。PDF 库留在你自己的机器上。
-
-**L3** 指全文导读，不是短摘要卡片。
-
-装完后新开 Cursor Agent 对话，运行 `/paper-reading`（附上 PDF、路径或 DOI）。不要把本目录软链到 `~/.cursor/skills/`（技能开了 `disable-model-invocation: true`，再加 command 会列两次）。把 `paper-reading/config.example.yml` 复制为 `paper-reading/config.yml`，或设置下方环境变量。命令见「安装 / Install」。
-
-规则：
-
-1. `PAPER_LIB_DIR` 只读。
-2. 笔记写到 `NOTES_DIR` 的新 markdown。同一 DOI 已有笔记就停，除非你点名了那个文件。
-3. 裁图只放 `FIGURES_DIR/<slug>/`。
-4. 每次写完后跑下方检查命令。不要对原笔记直接跑微信或 HTML 技能；先复制一份。
-
-更多细节：[USAGE.md](USAGE.md)。
+这是 [Cursor](https://cursor.com) Agent 斜杠命令技能（`/paper-reading`）。**L3** 指全文导读，不是短摘要卡片。PDF 库留在本机。规则与细节见 [USAGE.md](USAGE.md)。
 
 ## English
 
 Cursor skill that turns **one research PDF** into a **Chinese illustrated reading note**.
 
-This is a [Cursor](https://cursor.com) Agent slash-command skill (`/paper-reading`). Your PDF library stays on your machine.
-
-**L3** means a full guided walkthrough of the paper, not a short abstract card.
-
-After install, open a new Cursor Agent chat and run `/paper-reading` (attach a PDF, path, or DOI). Do **not** symlink this folder into `~/.cursor/skills/` (the skill sets `disable-model-invocation: true`; a symlink plus commands would list it twice). Copy `paper-reading/config.example.yml` to `paper-reading/config.yml`, or set the environment variables below. Commands are in **Install**.
-
-Rules:
-
-1. `PAPER_LIB_DIR` is read-only.
-2. Notes are new markdown in `NOTES_DIR`. Same DOI already present → stop, unless you named that file.
-3. Crops only under `FIGURES_DIR/<slug>/`.
-4. After every write, run the check command below. Do not run WeChat or HTML skills on the note in place. Copy it first.
-
-More detail: [USAGE.md](USAGE.md).
+[Cursor](https://cursor.com) Agent slash-command skill (`/paper-reading`). **L3** means a full guided walkthrough, not a short abstract card. Your PDF library stays on your machine. Rules and detail: [USAGE.md](USAGE.md).
 
 ## 安装 / Install
 
