@@ -31,6 +31,6 @@ Do not dump the whole reference list. Five to twelve links that change how the r
 ## What not to do
 
 - Do not write “相关工作很多” without names.
-- Do not cite a paper the PDF does not use unless the user asked for a landscape.
+- Do not cite a paper the PDF does not use unless they selected `研究历史` or `读相关文章`. `研究历史` still stays inside papers this PDF names. `读相关文章` still stays inside papers they named or that already have a local note or PDF.
 - Do not merge two papers’ numbers.
 - Do not list a paper in 关联 with only a local-note filename and no DOI.

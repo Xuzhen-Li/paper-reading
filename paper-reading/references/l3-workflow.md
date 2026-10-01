@@ -1,6 +1,6 @@
 # L3 illustrated note — order of work
 
-Lessons from full L3 demos (figures + fluency). Follow this order. Do not invent extra sections.
+Start this file only after `SKILL.md` **Ask first** confirms L3 and lists the 板块 and 深度 to keep. Do not invent extra sections.
 
 ## Paths
 
@@ -15,7 +15,7 @@ PDF library read-only. Backup the existing note to `TMP_DIR` before overwrite. `
    YAML (omit empty keys) → one H1 → one DOI line → 速览卡（含作者；GitHub 全套脚本时含**代码**） → optional `## 术语对照` → `## 📖 全文导读` (paper order, lab lineage, figures nested, full Chinese sentences; English terms when the Chinese would be a calque) → 数字速查 → `## 我的判断` (paragraphs) → `## 📜 原文摘抄` (≥8, real locators) → `## ✍️ 写作学习` (**English** 原句) → 关联 (每篇论文带 DOI；本地笔记链是附加，不能代替 DOI)。
 
 4. **Fluency is the Chinese pass** of 导读/判断 (`fluency-zh.md` + `human-writing`). Skip colon/em-dash bans. Do not dump `en_title` / 通讯 under H1. Field terms follow `terminology-zh.md`. After methods, a mermaid flowchart (sample → analysis → conclusions) with one italic line; not a paper-figure crop.
-5. **Do not add** `论文速读` tables, `公众号素材`, alphabet appendices, or a gallery `## 🖼️` that replaces the walkthrough. Independent figure reads go as one italic line under the image. Do not put SI folder paths or 「未写入 read_paper」 in the body — YAML `si_dir` / `si_inventory` only.
+5. **Write only selected 板块.** `论文速读` means the multi-part section (背景与问题, 假说, 方法, 关键结果, 最重要的图表, 关键结论原文, 作者团队), not a telegram table that replaces `全文导读`. `代表性假说与关键论文` is the timeline inside that background, and it is separate from the one-row `研究历史` table. `关键插图` is a Fig-by-Fig read with one line under the image. `每张图的详细推演` is the long walkthrough and is not included in `关键插图`. During 每张图的详细推演, 逐模块, a Q&A 分题, or when `tu-zoom` is ticked, a paragraph about one panel gets its own crop via `scripts/mark_figure_detail.py`. A mark goes on a copy, never on `fig0N.png`, and only where the sentence points at one spot. Caption that image as 笔记裁切 or 笔记标注. `逐模块` is written only after the second card, and only for modules named from this paper's result chain. Do not copy another paper's module titles. `Q&A` stays inside questions this paper can answer; `方法讲透`, `证据链推演`, and `关键流程推演` are separate ticks. `公众号素材` writes its six parts only when the group or those parts are ticked. `后续选题` and `理论问题` are different sections. `读相关文章` only covers papers the user named or that already have a local note or PDF, and it does not download new PDFs or start another L3. Do not put SI folder paths or 「未写入 read_paper」 in the body — YAML `si_dir` / `si_inventory` only.
 6. **Gate**: `audit_note_prose.py --strict`; `ls` png count = YAML `figures_count` = `![...](_figures/...)` links; `wc -l`.
 
 ## Extended Data / SI
@@ -28,7 +28,7 @@ Default L3 still crops 3–6 **main** figures, **and** downloads the publisher S
 4. Tables: means / key rows into 数字速查. Do not paste thousand-row sheets. Recompute counts from Data xlsx when IDs are present; if IDs were stripped, say so.
 5. CC BY / CC BY-NC-ND: private note crops OK; do not redistribute adapted figures.
 
-First full SI fold-ins include the public Hofmeister SHAPEIT5 2023 demo. Prefer SI from publisher ESM when it changes a claim; Extended Data already in the main PDF can be cropped from that PDF.
+First full SI fold-ins: Wang 1KCP 2026; Hofmeister SHAPEIT5 2023. Prior exceptions cropped ED from the same main PDF (Haak / Fu / Mallick).
 
 ## Depth without padding
 
