@@ -146,31 +146,37 @@ Dong 的合成：
 ## 🖼️ 关键插图（独立读图）
 
 ### Fig. 1 — 全球核心材料遗传多样性与分组基础
+![Fig.1](figures/fig01.png)
 - **panels**：A 地图；B PCA；C FST vs 地理距离；D ADMIXTURE；E–G 分组与栽培细分
 - **支撑结论**：全球葡萄可分出 Syl-W/E 与 CG1–6，后续分析以此为分类基础
 - **局限**：ADMIXTURE 不等于真实谱系史
 
 ### Fig. 2 — 野生生态型种群历史
+![Fig.2](figures/fig02.png)
 - **panels**：A FST 与 π；B Stairway Plot 2；C MSMC2；D 生态位建模
 - **支撑结论**：Syl-E 与 Syl-W 深时分化，随后组内再分化与瓶颈
 - **局限**：需对照 Stairway/MSMC 置信区间宽度判断时间点硬度
 
 ### Fig. 3 — 西亚与高加索双重驯化
+![Fig.3](figures/fig03.png)
 - **panels**：A PCA；B Momi2；C MSMC2 分化；D fastsimcoal2
 - **支撑结论**：约 11,000 年前西亚与高加索同时双重驯化
 - **局限**：驯化时间对突变率/生成时间敏感
 
 ### Fig. 4 — 欧洲逐步多样化与渐渗
+![Fig.4](figures/fig04.png)
 - **panels**：A TreeMix；B D-statistics；C Momi2 分化时间；D f4
 - **支撑结论**：欧洲酿酒葡萄形成伴随 Syl-W 向栽培组渐渗
 - **局限**：TreeMix 迁移边方向依赖模型与迁移边数 m；拓扑对缺失组敏感
 
 ### Fig. 5 — SDR 选择与演化
+![Fig.5](figures/fig05.png)
 - **panels**：A 基因型热图；B 单倍型网络；C 重组位点；D 重组历史
 - **支撑结论**：栽培化过程中 SDR 经历特定重组与单倍型路径
 - **局限**：结构变异区组装误差可假造重组
 
 ### Fig. 6 — 演化历史示意总图
+![Fig.6](figures/fig06.png)
 - **panels**：A 气候；B 野生 Ne；C 野生分化；D 驯化与栽培；E 考古；F 基因流
 - **支撑结论**：把双重驯化与后续多样化嵌入气候与人类史叙事（综合示意）
 - **局限**：证据权重低于定量面板；叙事压缩易夸大因果，宜当导读图而非独立证据

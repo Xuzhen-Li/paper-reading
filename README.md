@@ -52,5 +52,5 @@ Secondary-example original schematic (scaffold / SER). Not a Dong 2023 journal f
 
 ## 案例 / Examples
 
-- [Dong 等 2023 葡萄双重驯化](examples/2023-dong-grapevine-dual-domestication/README.md) — **主案例** / primary（文字 demo）
+- [Dong 等 2023 葡萄双重驯化](examples/2023-dong-grapevine-dual-domestication/README.md) — **主案例** / primary（含 Fig. 1–6 裁切图）
 - [Hofmeister 等 2023 SHAPEIT5](examples/2023-hofmeister-shapeit5/README.md) — **次案例** / secondary
