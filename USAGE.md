@@ -2,7 +2,7 @@
 
 ## 中文
 
-可移植的 Cursor 技能。一篇 PDF → 中文 L3 笔记（抽取 → 裁图 → SI 清单 → 英文草稿 → 中文导读 → 摘句 → 检查）。
+可移植技能包。一篇 PDF → 中文 L3 笔记（抽取 → 裁图 → SI 清单 → 英文草稿 → 中文导读 → 摘句 → 检查）。
 
 ### 本包是什么
 
@@ -14,9 +14,11 @@
 
 从仓库根目录安装斜杠命令即可。不要同时软链到 `~/.cursor/skills/`：技能开了 `disable-model-invocation: true`，软链再加 command 会让 `paper-reading` 出现两次。
 
-命令见下方「安装 / Install」。新开 Agent 对话后用 `/paper-reading`，并附上 PDF（或路径 / DOI）。润色：`/paper-reading 润色 某笔记.md`。
+命令见下方「安装 / Install」。新开对话后用 `/paper-reading` 或 `/精读`，并附上 PDF（或路径 / DOI）。润色：`/paper-reading 润色 某笔记.md`。
 
-### 路径硬规则（给 Agent）
+能读本仓 `SKILL.md`、又能跑本仓 Python 的代理，按同一套步骤即可；不为个别产品另做安装器。
+
+### 路径硬规则（给代理）
 
 1. `PAPER_LIB_DIR` **只读**。禁止在其中新建、修改、删除文件。
 2. 笔记写到 `NOTES_DIR` 的新 markdown。同一 DOI 已有笔记就停，除非用户点名了那个文件名。
@@ -26,11 +28,11 @@
 
 ### 本包不做的事
 
-公众号 / 信息图 / HTML：下游技能请对笔记的**副本**操作。不要对中文笔记跑 `nature-polishing`。不要对笔记跑 `check_prose.py`，YAML 会让它失败。
+公众号 / 信息图 / HTML：下游技能请对笔记的**副本**操作。不要对中文笔记跑 `nature-polishing`。笔记正文检查用本包的 `audit_note_prose.py`，不要用别的散文检查脚本硬套带 YAML 头的笔记。
 
 ## English
 
-Portable Cursor skill. One PDF → Chinese L3 note (extract → crop → SI → English draft → Chinese guide → excerpts → check).
+Portable skill package. One PDF → Chinese L3 note (extract → crop → SI → English draft → Chinese guide → excerpts → check).
 
 ### What this package is
 
@@ -42,7 +44,9 @@ It does **not** include your PDF library. Copy `config.example.yml` to `config.y
 
 Install slash commands from the clone root only. Do **not** also symlink this folder into `~/.cursor/skills/`. The skill sets `disable-model-invocation: true`. A symlink plus commands lists `paper-reading` twice.
 
-Commands are in **Install** below. New Agent chat: `/paper-reading` and attach a PDF (or a path / DOI). Polish: `/paper-reading 润色 some-note.md`.
+Commands are in **Install** below. New chat: `/paper-reading` or `/精读` and attach a PDF (or a path / DOI). Polish: `/paper-reading 润色 some-note.md`.
+
+Any agent that can read this repo’s `SKILL.md` and run its Python follows the same steps. There is no separate installer for other products.
 
 ### Path iron rules (agents)
 
@@ -54,7 +58,7 @@ Commands are in **Install** below. New Agent chat: `/paper-reading` and attach a
 
 ### Not this package
 
-Public WeChat / infographic / HTML: downstream skills on a **copy** of the note. Do not run `nature-polishing` on the Chinese note. Do not run `check_prose.py` on the note; YAML will make it fail.
+Public WeChat / infographic / HTML: downstream skills on a **copy** of the note. Do not run `nature-polishing` on the Chinese note. Use this package’s `audit_note_prose.py` for note checks; do not force other prose checkers onto notes that start with YAML.
 
 ## 安装 / Install
 

@@ -1,19 +1,102 @@
 ---
 name: paper-reading
 description: >-
-  One research PDF → Chinese L3 illustrated note (导读, cropped figures,
-  excerpts, 判断). Attach a PDF or path. Add 润色 and a note filename to
-  polish. Slash only; do not auto-run.
+  One research PDF → a Chinese reading note. Before any extract, crop, or
+  writing, open one option card: 分级, 板块, 深度, 扩展. Attach a PDF or path.
+  Slash only; do not auto-run.
 disable-model-invocation: true
 ---
 
 # paper-reading
 
-One call, one note. Default job is **L3 精读** at the quality of the public demo (Dong et al. 2023 *Science*, DOI [10.1126/science.add8655](https://doi.org/10.1126/science.add8655)): a colleague talking through the PDF with figures in place, not a telegram dump and a later “polish”.
+One PDF, one note. Do not open on L3. Before `pdftotext`, crops, SI downloads, or any writing, open the option card, then wait.
 
 `SKILL_DIR` = the directory that contains this file.
 
-Load next, in order:
+## Ask first
+
+Open **one option card** with the AskQuestion tool, then wait. Do not paste this menu as a chat paragraph. Do not load `references/` before the answer. Do not extract, crop, or write before the card comes back.
+
+Skip the card only when the same message says `直接做`, `不用问`, or `按默认`. `按默认` means the L3 set below. If the message already names some cards, pre-select those in how you read the answer, and still show the card unless one of those three phrases is present.
+
+Title: `这次读到哪一步？`
+
+Five questions, Chinese labels, in this order:
+
+1. `level` — 分级。Single choice. First option is the suggestion.
+   - `l3`：L3 精读（建议）
+   - `l2`：L2 标准
+   - `l1`：L1 速览
+2. `sections-note` — 板块·笔记与速读。`allow_multiple: true`. Unticked cards are not written. （建议） is a hint, not a silent default. Only `l3-default`, or the words `按默认`, fills the L3 set.
+   - `l3-default`：按默认：L3 全套（分类、速览卡、论文速读整组、关键插图、判断整组、关联整组、逐模块、Q&A）
+   - `fenlei`：分类（建议）
+   - `suolan`：速览卡（建议）
+   - `sudu-all`：论文速读整组（建议）：背景与问题、假说、方法、关键结果、最重要的图表、关键结论原文、作者团队
+   - `panduan`：判断整组（建议）：亮点、局限性、与我的关系、可引用 / 不要当作
+   - `guanlian`：关联整组（建议）：同类论文、关联概念、术语速查
+   - `shuyu-duizhao`：术语对照
+   - `daodu`：全文导读
+   - `shuzi`：数字速查
+   - `zhaichao`：摘抄
+   - `xiezuo`：写作学习
+   - `flowchart`：方法流程图（笔记整理的流程图，不是原文图）
+   - `beijing`：背景与问题
+   - `jiashuo-timeline`：代表性假说与关键论文（按时间线；只收本文点名的论文，不打开那些 PDF）
+   - `jiashe`：假说（本文要检验的说法，以及它推翻的说法）
+   - `fangfa`：方法
+   - `jieguo`：关键结果
+   - `zhongyao-tu`：最重要的图表（点名哪几张，不代替逐张读图）
+   - `jielun-yuanwen`：关键结论原文
+   - `zuozhe`：作者团队
+   - `liangdian`：亮点
+   - `juxian`：局限性
+   - `guanxi`：与我的关系
+   - `keyinyong`：可引用 / 不要当作
+   - `tonglei`：同类论文（短表：DOI 加一句关系，五到十二篇）
+   - `gainian`：关联概念
+   - `shuyu-sucha`：术语速查
+   - `yanjiu-lishi`：研究历史（冲突表：一行一条，谁和谁相反）
+   - `du-xiangguan`：读相关文章（在补充框写读几篇；不新下 PDF）
+3. `sections-deep` — 板块·图、模块、问答与对外。`allow_multiple: true`. Same rule: unticked cards are not written. `l3-default` already includes 关键插图、逐模块、Q&A; it does not include the cards below those three.
+   - `chatou`：关键插图（建议）：按 Fig 逐张独立读图，图下一条说明
+   - `tu-tuiyan`：每张图的详细推演（Dong 2023 里 Fig.1–6 那种长推演）
+   - `tu-si`：关键补充图（只收会改主张的补充图）
+   - `tu-zoom`：细讲配图：讲到某一小块时裁到那一块；要指出位置时在副本上加框或短标注。勾了每张图的详细推演、逐模块，或 Q&A 分题时，这条一并生效
+   - `zhumokuai`：逐模块（建议）：先读完这篇，再按这篇的结果链列模块。开读前不预设模块名
+   - `qa`：Q&A 整组（建议）：只问这篇论文里解得开的问题
+   - `qa-method`：方法讲透（正文用了、但没展开的方法）
+   - `qa-chain`：证据链推演（从观察到结论，写清被排除的替代解释）
+   - `qa-pipeline`：关键流程推演（按这篇实际用的流程，如分群或模型比较）
+   - `gongzhonghao`：公众号素材整组：故事钩子、核心比喻、人物线、争议点、与普通人的连接、一句话可截图
+   - `gzh-hook`：故事钩子
+   - `gzh-metaphor`：核心比喻
+   - `gzh-people`：人物线
+   - `gzh-dispute`：争议点
+   - `gzh-reader`：与普通人的连接
+   - `gzh-line`：一句话可截图
+   - `houxu`：后续选题（基于本文数据还能做什么）
+   - `lilun`：理论问题（这篇没答完的机制问题，不是选题清单）
+4. `depth` — 深度。Single choice.
+   - `main-figs`：主文+主图（建议）
+   - `main-only`：只读主文
+   - `si-claims`：再加会改主张的补充材料
+5. `extra` — 扩展。Single choice.
+   - `none`：不要（建议）
+   - `crops-only`：只抽图
+   - `polish-words`：润色已有笔记：只改措辞
+   - `polish-numbers`：润色已有笔记：对照 PDF 核数字
+
+How the answer limits the work:
+
+- **分级** is the ceiling. L1 and L2 do not grow into L3 because a later section feels useful.
+- **板块** is the allow-list from both section questions. Unticked cards are not written, even on L3. `l3-default` writes 分类、速览卡、论文速读整组、关键插图、判断整组、关联整组、逐模块、Q&A, then adds any extra ticks. It does not add 每张图的详细推演、关键补充图、细讲配图、假说时间线、Q&A 分题、公众号小块、后续选题、理论问题, or 流程图. `tu-zoom` also turns on when 每张图的详细推演、逐模块, or a Q&A 分题 is selected. A group option writes that whole group; a single card writes only that card. `论文速读` does not replace `全文导读` when both were ticked. `研究历史` is the one-row conflict table. `代表性假说与关键论文` is the timeline writeup. Both stay inside papers this PDF names. `同类论文` stays a short DOI table. `理论问题` is not `后续选题`. `读相关文章` does not start another L3 and does not download new PDFs. If `读相关文章` is ticked and the note does not say how many, ask once for the number before opening other papers.
+- **逐模块** has no fixed list. Dong 2023's modules belong to that paper only. If `zhumokuai` or `l3-default` is selected: extract and read this PDF first, then open a second option card before writing `## 逐模块`. Title: `这篇的模块，写哪些？` Options come from this paper's result chain, `allow_multiple: true`, plus `all`（这篇的全部模块）. Each label is this paper's own step, one line on what it covers. Do not reuse another note's module titles. Wait. Write only the ticked modules. If none are ticked, write no modules. Other selected 板块 wait for this card too, so the note is written once.
+- **深度** chooses how far into the paper those sections go. `只读主文`: no crops, no SI download. `主文+主图`: crop 3–6 main figures. `补充材料`: the SI rules below, and only numbers or figures that change a claim.
+- **扩展** is off the main path. `只抽图` crops and stops. Either polish option uses the polish path and only touches the ticked 板块. Q&A is a 板块, not an extension.
+
+A polish-only request still opens the card. Suggest `none` on 扩展 only when they did not already say 润色. If they said 润色, the suggestion on 扩展 is `polish-words`, and 板块 is which sections to polish.
+
+After they answer, load what that job needs. L1: [references/claim-evidence.md](references/claim-evidence.md) and [references/banned-phrases.md](references/banned-phrases.md). L2: those two, plus [references/terminology-zh.md](references/terminology-zh.md), [references/prose-style-zh.md](references/prose-style-zh.md), [references/layout-hygiene.md](references/layout-hygiene.md), and [templates/note-l2.md](templates/note-l2.md). L3, in order:
 
 1. [references/l3-workflow.md](references/l3-workflow.md)
 2. [references/terminology-zh.md](references/terminology-zh.md)
@@ -37,14 +120,14 @@ Resolve `PAPER_LIB_DIR`, `NOTES_DIR`, `FIGURES_DIR`, `TMP_DIR` from, in order:
 
 1. Environment variables of those names
 2. `config.yml` next to this `SKILL.md`, or one directory above the `skills/` folder
-3. Placeholders (same as `config.example.yml`; copy to `config.yml` or export env vars — do not commit machine paths):
+3. If these folders exist, use them (local reading pipeline):
 
 | Name | Default |
 |------|---------|
-| `PAPER_LIB_DIR` | `/path/to/pdf-library` |
-| `NOTES_DIR` | `/path/to/notes` |
-| `FIGURES_DIR` | `/path/to/notes/_figures` |
-| `TMP_DIR` | `/path/to/tmp` |
+| `PAPER_LIB_DIR` | `~/Desktop/read_paper` |
+| `NOTES_DIR` | `~/Desktop/script/AI_lib/papers` |
+| `FIGURES_DIR` | `~/Desktop/script/AI_lib/papers/_figures` |
+| `TMP_DIR` | `~/Desktop/script/AI_lib/projects/read-paper-sweep/tmp` |
 
 `PAPER_LIB_DIR` is **read-only**. Never create, edit, or delete files there. Notes are markdown in `NOTES_DIR`. Figures only under `FIGURES_DIR/<slug>/`. pdftotext, backups, and figwork only in `TMP_DIR`. Do not `rm` an existing note; backup to `TMP_DIR` first. After every write: `ls` the absolute path and `wc -l`.
 
@@ -52,8 +135,8 @@ Resolve `PAPER_LIB_DIR`, `NOTES_DIR`, `FIGURES_DIR`, `TMP_DIR` from, in order:
 
 | User says | Job |
 |-----------|-----|
-| `/paper-reading` or `/精读` plus a PDF / path / DOI | **L3 精读** (this file’s main path) |
-| `/paper-reading L2` | L2: same shape, shorter 导读, no bulk crops |
+| `/paper-reading` or `/精读` plus a PDF / path / DOI | Option card first. L3 only after they pick it |
+| `/paper-reading L2` | Still open the card. Suggestion on 分级 is L2, not a silent start |
 | `/paper-reading 润色` plus a named note | Polish that note; do not re-extract unless figures are missing |
 | `/paper-reading 抽图` | Crops only, then stop |
 | `/paper-reading` plus `SI` / `ESM` / 补充材料 | Same as L3; SI is already default (see l3-workflow) |
@@ -62,11 +145,11 @@ Skip preprints and off-list venues unless the user names them. If `NOTES_DIR` al
 
 ## L3 精读 (one shot)
 
-Do not add `论文速读`, 公众号素材, or lettered appendices. Write 导读/判断 by the English-then-Chinese path in `en-then-zh.md` (English file stays in `TMP_DIR`).
+Run this only after Ask first confirms L3, and only for the 板块 and 深度 they kept. Write a 板块 only when they selected it, including 论文速读, 关键插图, 逐模块, Q&A, 研究历史, 读相关文章, 公众号素材, and 后续选题. Do not invent extra blocks. Write 导读/判断 by the English-then-Chinese path in `en-then-zh.md` when 全文导读 or 判断 is selected (English file stays in `TMP_DIR`).
 
 1. **DOI / skip.** Identify the article. Search `NOTES_DIR` for the DOI. Filename: `{year}-{author}-{keywords}-{journal}.md` (no DOI-only names).
 
-2. **Text.** `pdftotext -layout` the PDF into `TMP_DIR`. Rebuild every number from that extract.
+2. **Text.** `pdftotext -layout` the PDF into `TMP_DIR`. Rebuild every number from that extract. If 逐模块 was selected, read this extract and open the second module card before any writing. Module titles come from this paper only.
 
 3. **Figures.** Crop 3–6 **main** figures:
 
@@ -77,6 +160,21 @@ python3 "$SKILL_DIR/scripts/extract_paper_figures.py" \
 ```
 
 Then `ls` the **png** files. A `manifest.json` without png is a fail. Nature PDFs often mention “Fig. N” in early body text — those crops are not figures. Open each png; keep true multi-panel evidence; hand-pick pages if needed.
+
+**细讲配图.** On for `tu-zoom`, and also for 每张图的详细推演、逐模块, and a Q&A 分题. 关键插图 alone keeps the whole figure. When a paragraph is about one panel or one spot, do not leave the reader on the full figure. Crop that region to a new png. If the sentence points at a place that is easy to miss, mark it on a second copy. Look at the image and set the box from what you see. Never overwrite `fig0N.png`.
+
+```bash
+python3 "$SKILL_DIR/scripts/mark_figure_detail.py" \
+  --src "$FIGURES_DIR/$SLUG/fig03.png" \
+  --out "$FIGURES_DIR/$SLUG/fig03-panel-b.png" \
+  --crop 40,80,520,640
+python3 "$SKILL_DIR/scripts/mark_figure_detail.py" \
+  --src "$FIGURES_DIR/$SLUG/fig03-panel-b.png" \
+  --out "$FIGURES_DIR/$SLUG/fig03-panel-b-note.png" \
+  --mark 30,20,180,160 --label "b 渐渗"
+```
+
+`--crop` and `--mark` are `left,top,right,bottom` in pixels, origin top-left. `--mark` is measured on the output. Put the tight crop, or the marked copy, beside the paragraph that needs it. One italic line: 笔记裁切，不是原图; if marked, 笔记标注，不是原图改绘. The label is a few words naming what the box is. Do not mark every panel, do not redraw the figure, and do not add a number the paper does not show. A linked panel or marked png counts in `figures_count`. Delete a crop the note does not use.
 
 **L3 downloads SI** (publisher ESM / Suppl. Figs / Data xlsx) into `FIGURES_DIR/<slug>/si/`. Never into `PAPER_LIB_DIR`. If Extended Data is already in the same PDF, crop 2–4 `edfig0N.png` that change a claim. From the separate SI, crop 1–2 `sfig0N.png` only if they carry a claim main/ED figures do not. Tables: key rows into 数字速查. L2 still skips a separate ESM unless the user asks.
 
