@@ -28,6 +28,12 @@ EXCERPT_RE = re.compile(r"^## .*(原文摘抄)", re.M)
 SEQ_WORDS = ("首先", "其次", "再次", "最后")
 SIGNIFICANCE_RE = re.compile(r"具有重要意义|填补空白")
 OPENING_LABEL_RE = re.compile(r"\*\*EN\*\*|\*\*通讯\*\*|^\s*>\s*\*\*一作\*\*|通讯：|一作：")
+FENCE_RE = re.compile(r"^```")
+INLINE_CODE_RE = re.compile(r"`[^`\n]*`")
+STRONG_RE = re.compile(r"\*\*[^*]*\*\*")
+IMAGE_LINE_RE = re.compile(r"!\[[^\]]*\]\([^)]+\)")
+ZOOM_HEADING_RE = re.compile(r"^## 小图精讲\s*$", re.M)
+PANEL_FILE_RE = re.compile(r"(?:fig|edfig|sfig)\d+-", re.I)
 
 
 def parse_frontmatter(text: str) -> tuple[dict[str, str], str]:
@@ -49,6 +55,107 @@ def parse_frontmatter(text: str) -> tuple[dict[str, str], str]:
 
 def _error(code: str, message: str) -> dict[str, str]:
     return {"code": code, "message": message}
+
+
+def _strip_code_and_strong(text: str) -> str:
+    without_code = INLINE_CODE_RE.sub("", text)
+    return STRONG_RE.sub("", without_code)
+
+
+def preview_markdown_errors(body: str) -> list[dict[str, str]]:
+    """Catch markdown that hides the rest of a paragraph or the next image."""
+    errors: list[dict[str, str]] = []
+    paragraphs: list[list[tuple[int, str]]] = []
+    current: list[tuple[int, str]] = []
+    in_fence = False
+    for lineno, line in enumerate(body.splitlines(), 1):
+        if FENCE_RE.match(line.strip()):
+            in_fence = not in_fence
+            if current:
+                paragraphs.append(current)
+                current = []
+            continue
+        if in_fence or not line.strip():
+            if current and not in_fence:
+                paragraphs.append(current)
+                current = []
+            continue
+        current.append((lineno, line))
+    if in_fence:
+        errors.append(_error("unclosed_fence", "a code fence is still open at the end of the note"))
+    if current:
+        paragraphs.append(current)
+
+    for para in paragraphs:
+        for lineno, line in para:
+            if "![" not in line:
+                continue
+            rest = IMAGE_LINE_RE.sub("", line).strip()
+            if rest:
+                errors.append(
+                    _error(
+                        "image_not_alone",
+                        f"line {lineno}: an image shares its line with other text, so a broken span can hide it",
+                    )
+                )
+        plain = _strip_code_and_strong("\n".join(line for _, line in para))
+        if plain.count("**") % 2:
+            errors.append(
+                _error(
+                    "unclosed_emphasis",
+                    f"line {para[0][0]}: unclosed ** runs through the paragraph and can hide the next image",
+                )
+            )
+        emphasis = plain.replace("**", "")
+        if emphasis.count("*") % 2:
+            errors.append(
+                _error(
+                    "unclosed_emphasis",
+                    f"line {para[0][0]}: unclosed * runs through the paragraph and can hide the next image",
+                )
+            )
+        for lineno, line in para:
+            caption = _strip_code_and_strong(line).strip()
+            if caption.startswith("*") and caption.endswith("*") and caption.count("*") >= 4:
+                errors.append(
+                    _error(
+                        "nested_italic",
+                        f"line {lineno}: an italic caption contains another *...*; the preview closes the span early",
+                    )
+                )
+    return errors
+
+
+def zoom_section_errors(body: str) -> list[dict[str, str]]:
+    """A tight crop buried in prose is not 小图精讲. The outline needs the heading."""
+    errors: list[dict[str, str]] = []
+    has_zoom_caption = "笔记裁切" in body or "笔记标注" in body
+    heading = ZOOM_HEADING_RE.search(body)
+    if has_zoom_caption and heading is None:
+        errors.append(
+            _error(
+                "missing_zoom_heading",
+                "笔记裁切 / 笔记标注 need their own ## 小图精讲 so the outline shows the panel",
+            )
+        )
+        return errors
+    if heading is None:
+        return errors
+    after = body[heading.end() :]
+    next_heading = re.search(r"^## ", after, re.M)
+    section = after[: next_heading.start()] if next_heading else after
+    images = IMAGE_RE.findall(section)
+    if not images:
+        errors.append(_error("zoom_section_empty", "## 小图精讲 has no image"))
+        return errors
+    if not any(PANEL_FILE_RE.search(Path(dest).name) for dest in images):
+        errors.append(
+            _error(
+                "zoom_not_a_panel",
+                "## 小图精讲 only links a whole figure; crop the panel to its own png",
+            )
+        )
+    return errors
 
 
 def audit_text(text: str, slug: str | None = None) -> dict:
@@ -112,6 +219,9 @@ def audit_text(text: str, slug: str | None = None) -> dict:
         errors.append(_error("empty_significance", "empty significance phrasing"))
     if all(word in body for word in SEQ_WORDS):
         errors.append(_error("formulaic_sequence", "dense 首先/其次/再次/最后 scaffolding"))
+
+    errors.extend(preview_markdown_errors(body))
+    errors.extend(zoom_section_errors(body))
 
     return {
         "slug": slug,

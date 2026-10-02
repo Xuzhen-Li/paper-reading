@@ -118,6 +118,91 @@ note_depth: L2
 """
 
 
+NESTED_ITALIC = """---
+title: "Nested"
+note_depth: L2
+---
+
+# Nested
+
+*HPG1 的采样点，以及 *rtel1-1* 两条缺失。*
+"""
+
+SEPARATE_ITALICS = """---
+title: "Separate"
+note_depth: L2
+---
+
+# Separate
+
+插入 *U* = 20，*P* = 1.000。
+"""
+
+UNCLOSED = """---
+title: "Unclosed"
+note_depth: L2
+---
+
+# Unclosed
+
+这句话的斜体没有收口 *
+
+![Fig.1](_figures/unclosed/fig01.png)
+"""
+
+IMAGE_WITH_TEXT = """---
+title: "Image text"
+note_depth: L2
+---
+
+# Image text
+
+见图 ![Fig.1](_figures/image-text/fig01.png) 的 a 面板。
+"""
+
+ZOOM_BURIED = """---
+title: "Buried"
+note_depth: L2
+---
+
+# Buried
+
+![panel](_figures/buried/fig02-indel.png)
+
+*笔记裁切，不是原图。*
+"""
+
+ZOOM_WHOLE = """---
+title: "Whole"
+note_depth: L2
+---
+
+# Whole
+
+## 小图精讲
+
+![Fig.1](_figures/whole/fig01.png)
+
+*笔记裁切，不是原图。*
+"""
+
+ZOOM_OK = """---
+title: "Zoom ok"
+note_depth: L2
+---
+
+# Zoom ok
+
+## 小图精讲
+
+### Fig. 3c
+
+![Fig. 3c](_figures/zoom-ok/fig03-panel-bc-note.png)
+
+*笔记标注，不是原图改绘。红框圈住引进的那段。*
+"""
+
+
 class AuditNoteProseTest(unittest.TestCase):
     def test_good_l3_clean(self) -> None:
         result = anp.audit_text(GOOD_L3, slug="good-note")
@@ -155,6 +240,41 @@ class AuditNoteProseTest(unittest.TestCase):
             {"empty_significance", "formulaic_sequence"} & codes,
             result,
         )
+
+    def test_nested_italic_breaks_preview(self) -> None:
+        result = anp.audit_text(NESTED_ITALIC, slug="nested")
+        codes = {e["code"] for e in result["errors"]}
+        self.assertIn("nested_italic", codes)
+
+    def test_separate_italics_are_ok(self) -> None:
+        result = anp.audit_text(SEPARATE_ITALICS, slug="separate")
+        codes = {e["code"] for e in result["errors"]}
+        self.assertNotIn("nested_italic", codes)
+        self.assertNotIn("unclosed_emphasis", codes)
+
+    def test_unclosed_emphasis(self) -> None:
+        result = anp.audit_text(UNCLOSED, slug="unclosed")
+        codes = {e["code"] for e in result["errors"]}
+        self.assertIn("unclosed_emphasis", codes)
+
+    def test_image_must_be_alone(self) -> None:
+        result = anp.audit_text(IMAGE_WITH_TEXT, slug="image-text")
+        codes = {e["code"] for e in result["errors"]}
+        self.assertIn("image_not_alone", codes)
+
+    def test_zoom_caption_needs_heading(self) -> None:
+        result = anp.audit_text(ZOOM_BURIED, slug="buried")
+        codes = {e["code"] for e in result["errors"]}
+        self.assertIn("missing_zoom_heading", codes)
+
+    def test_zoom_section_rejects_whole_figure(self) -> None:
+        result = anp.audit_text(ZOOM_WHOLE, slug="whole")
+        codes = {e["code"] for e in result["errors"]}
+        self.assertIn("zoom_not_a_panel", codes)
+
+    def test_zoom_section_accepts_panel(self) -> None:
+        result = anp.audit_text(ZOOM_OK, slug="zoom-ok")
+        self.assertEqual(result["errors"], [], result)
 
     def test_audit_path(self) -> None:
         import tempfile
