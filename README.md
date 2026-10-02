@@ -3,9 +3,23 @@
 [![打开演示 · Dong 2023 葡萄双重驯化](https://img.shields.io/badge/%E6%89%93%E5%BC%80%E6%BC%94%E7%A4%BA-Dong%202023%20%E8%91%A1%E8%90%84%E5%8F%8C%E9%87%8D%E9%A9%AF%E5%8C%96-1f6feb?style=for-the-badge)](examples/2023-dong-grapevine-dual-domestication/note.md)
 [![Open the demo · Dong 2023](https://img.shields.io/badge/Open_the_demo-Dong_2023-1f6feb?style=for-the-badge)](examples/2023-dong-grapevine-dual-domestication/note.md)
 
-![主案例 Fig.1 预览（正文裁切）](examples/2023-dong-grapevine-dual-domestication/figures/fig01.png)
+下面是主案例笔记渲染之后的板块，不是期刊 PDF 的整页截图。完整笔记在 [note.md](examples/2023-dong-grapevine-dual-domestication/note.md)。图里若出现 Fig. 1，用的是笔记已有的正文裁切，来源见 [SOURCES.md](examples/2023-dong-grapevine-dual-domestication/figures/SOURCES.md)。
 
-*上图来自主案例笔记里的正文裁切（`fig01.png`），不是新裁的期刊图。授权与来源见 [examples/2023-dong-grapevine-dual-domestication/figures/SOURCES.md](examples/2023-dong-grapevine-dual-domestication/figures/SOURCES.md)。*
+The pictures below are sections of the rendered demo note, not a journal-page crop. Full note: [note.md](examples/2023-dong-grapevine-dual-domestication/note.md).
+
+![速览卡 · skim card](examples/2023-dong-grapevine-dual-domestication/preview/01-skim-card.png)
+
+![关键结果 · key results](examples/2023-dong-grapevine-dual-domestication/preview/02-key-results.png)
+
+![关键插图 · figure inside the note](examples/2023-dong-grapevine-dual-domestication/preview/03-figure-in-note.png)
+
+![详细推演 · figure walkthrough](examples/2023-dong-grapevine-dual-domestication/preview/04-figure-walkthrough.png)
+
+![我的判断 · judgment](examples/2023-dong-grapevine-dual-domestication/preview/07-judgment.png)
+
+![逐模块 · modules](examples/2023-dong-grapevine-dual-domestication/preview/05-modules.png)
+
+![Q&A](examples/2023-dong-grapevine-dual-domestication/preview/06-qa.png)
 
 ## 中文
 
@@ -59,7 +73,7 @@ python3 "$PKG/scripts/audit_note_prose.py" "$NOTE" --strict
 
 ### 案例
 
-- **主案例**：[Dong 等 2023 葡萄双重驯化](examples/2023-dong-grapevine-dual-domestication/README.md) — 打开 [note.md](examples/2023-dong-grapevine-dual-domestication/note.md)（含 Fig. 1–6 正文裁切图）。
+- **主案例**：[Dong 等 2023 葡萄双重驯化](examples/2023-dong-grapevine-dual-domestication/README.md) — 打开 [note.md](examples/2023-dong-grapevine-dual-domestication/note.md)。首页图是这篇笔记渲染后的板块。
 - **次案例**：[Hofmeister 等 2023 SHAPEIT5](examples/2023-hofmeister-shapeit5/README.md) — 只链自制示意 [scaffold-and-ser.png](examples/2023-hofmeister-shapeit5/figures/scaffold-and-ser.png)。
 
 ## English
@@ -114,5 +128,5 @@ python3 "$PKG/scripts/audit_note_prose.py" "$NOTE" --strict
 
 ### Examples
 
-- **Primary**: [Dong et al. 2023 grapevine dual domestication](examples/2023-dong-grapevine-dual-domestication/README.md) — open [note.md](examples/2023-dong-grapevine-dual-domestication/note.md) (cropped Fig. 1–6 from the article body).
+- **Primary**: [Dong et al. 2023 grapevine dual domestication](examples/2023-dong-grapevine-dual-domestication/README.md) — open [note.md](examples/2023-dong-grapevine-dual-domestication/note.md). The pictures at the top of this page are rendered sections of that note.
 - **Secondary**: [Hofmeister et al. 2023 SHAPEIT5](examples/2023-hofmeister-shapeit5/README.md) — link only the original schematic [scaffold-and-ser.png](examples/2023-hofmeister-shapeit5/figures/scaffold-and-ser.png).
