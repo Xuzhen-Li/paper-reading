@@ -5,7 +5,7 @@
 
 ## 中文
 
-**主案例。** `/paper-reading` 技能写出的中文阅读笔记，可在 GitHub 上直接打开（含 Fig. 1–6 正文裁切图）。
+**主案例。** `/paper-reading` 技能写出的中文阅读笔记，可在 GitHub 上直接打开。仓库首页上的图是这篇笔记渲染后的板块（速览卡、关键结果、关键插图、详细推演、判断、逐模块、Q&A），不是期刊 PDF 的整页截图。笔记正文里仍有 Fig. 1–6 的裁切图。
 
 Dong 等 2023，*Science*，*Dual domestications and origin of traits in grapevine evolution*。
 
@@ -17,7 +17,7 @@ Dong 等 2023，*Science*，*Dual domestications and origin of traits in grapevi
 
 ## English
 
-**Primary example.** Chinese reading note produced by the `/paper-reading` skill; open it on GitHub (includes cropped Fig. 1–6 from the article body).
+**Primary example.** Chinese reading note produced by the `/paper-reading` skill; open it on GitHub. The pictures on the repository home page are rendered sections of this note (skim card, key results, a figure read inside the note, figure walkthrough, judgment, modules, Q&A), not a journal-page crop. The note still embeds cropped Fig. 1–6.
 
 Dong et al. 2023, *Science*, *Dual domestications and origin of traits in grapevine evolution*.
 
