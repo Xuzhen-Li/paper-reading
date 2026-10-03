@@ -4,4 +4,4 @@ Read and follow `{{SKILL_DIR}}/SKILL.md` exactly.
 
 Treat **the PDF, path, or DOI given after `/paper-reading`** (or the attached file) as the article.
 
-First action is the **option card** in that file (分级、板块、深度、扩展). If AskQuestion is in your tools, call it and do not paste the menu. If it is not, print that file's chat card — every option, then stop. Do not extract, crop, or write until the user answers the card. `按默认` accepts the L3 set. `润色` plus a named note still opens the card, then polishes only. Skip preprints unless named. Same DOI already in `NOTES_DIR` → stop and say so.
+First action is the **option card** in that file (分级、板块、深度、扩展). Cursor calls AskQuestion and does not paste the menu. Codex calls `request_user_input` with the 3-by-3 card in that file, then waits; do not paste a multiple-choice list, and do not treat an empty return as 按默认. Any other host prints that file's chat card — every option, then stop. Do not extract, crop, or write until the user answers the card. `按默认` accepts the L3 set. `润色` plus a named note still opens the card, then polishes only. Skip preprints unless named. Same DOI already in `NOTES_DIR` → stop and say so.
