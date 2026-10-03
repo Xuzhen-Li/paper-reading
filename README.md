@@ -27,7 +27,7 @@ The pictures below are sections of the rendered demo note, not a journal-page cr
 
 斜杠命令是 `/paper-reading` 或 `/精读`。能读本仓 `paper-reading/SKILL.md`、又能跑本仓 Python 脚本的代理，按同一套步骤即可；不为个别产品另做安装器。细则见 [USAGE.md](USAGE.md) 与 `paper-reading/SKILL.md`。
 
-开始前会弹出**选项卡**。没有表单工具的宿主（ChatGPT、GPT，以及任何调不到 AskQuestion 的代理）改为在对话里列出同一张卡的全部选项，然后停住等回复，不能自己挑「建议」项往下读。没勾选的板块不写。消息里写「按默认」等于选 L3 全套。五道题依次是：
+开始前会弹出**选项卡**。Codex 调用 `request_user_input`：一次最多三题、每题三个选项，空返回不算「按默认」。ChatGPT 等没有表单工具的宿主改为在对话里列出全部选项，然后停住等回复，不能自己挑「建议」项往下读。没勾选的板块不写。消息里写「按默认」等于选 L3 全套。五道题依次是：
 
 1. **分级**：L3 精读 / L2 标准 / L1 速览。
 2. **板块·笔记与速读**（可多选）：`按默认：L3 全套`，以及分类、速览卡、论文速读整组、判断整组、关联整组、术语对照、全文导读、数字速查、摘抄、写作学习、方法流程图、背景与问题、代表性假说与关键论文、假说、方法、关键结果、最重要的图表、关键结论原文、作者团队、亮点、局限性、与我的关系、可引用 / 不要当作、同类论文、关联概念、术语速查、研究历史、读相关文章等。
@@ -82,7 +82,7 @@ Turns **one research PDF** into a **Chinese illustrated reading note**. Your PDF
 
 Slash commands: `/paper-reading` or `/精读`. Any agent that can read `paper-reading/SKILL.md` and run this repo’s Python scripts follows the same steps. There is no separate installer for other products. Details: [USAGE.md](USAGE.md) and `paper-reading/SKILL.md`.
 
-Before work starts, an **option card** appears. Hosts with no form tool (ChatGPT, GPT, or any agent that cannot call AskQuestion) print that same card in full and stop for a reply. They do not pick the suggested items and continue. Unticked sections are not written. The words `按默认` mean the L3 full set. The five questions are:
+Before work starts, an **option card** appears. Codex calls `request_user_input`: at most three questions, three options each, and an empty return is not `按默认`. Hosts with no form tool (ChatGPT, or any agent that cannot call AskQuestion or `request_user_input`) print that same card in full and stop for a reply. They do not pick the suggested items and continue. Unticked sections are not written. The words `按默认` mean the L3 full set. The five questions are:
 
 1. **Level**: L3 deep read / L2 standard / L1 skim.
 2. **Sections · note & skim** (multi-select): `按默认：L3 full set`, plus classification, skim card, paper-skim group, judgment group, related group, term map, full walkthrough, number lookup, excerpts, writing craft, methods flowchart, background, hypothesis timeline, hypothesis, methods, key results, most important figures, key conclusion quotes, authors, highlights, limits, relevance to me, citable / do-not-treat-as, related papers, related concepts, term lookup, research history, read related articles, and more.
