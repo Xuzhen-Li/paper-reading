@@ -15,11 +15,13 @@ One PDF, one note. Do not open on L3. Before `pdftotext`, crops, SI downloads, o
 
 ## Ask first
 
-Open **one option card** with the AskQuestion tool, then wait. Do not paste this menu as a chat paragraph. Do not load `references/` before the answer. Do not extract, crop, or write before the card comes back.
+The card is mandatory. Skip it only when the same message says `直接做`, `不用问`, or `按默认`. `按默认` means the L3 set below. If the message already names some cards, pre-select those in how you read the answer, and still show the card unless one of those three phrases is present.
 
-Skip the card only when the same message says `直接做`, `不用问`, or `按默认`. `按默认` means the L3 set below. If the message already names some cards, pre-select those in how you read the answer, and still show the card unless one of those three phrases is present.
+Do not load `references/` before the answer. Do not extract, crop, or write before the card comes back. A missing form tool is not permission to pick the （建议） items yourself.
 
-Title: `这次读到哪一步？`
+**Cursor, or any turn whose tools include AskQuestion.** Call AskQuestion once, then wait. Title: `这次读到哪一步？` Do not also paste the menu into the chat.
+
+**No AskQuestion in this turn's tools** (ChatGPT, GPT, or any host with no form tool). Do not invent a tool call, and do not say the card popped up. The whole reply is the chat card, then stop. Copy every bullet under the five questions below. One numbered question per block, each option on its own line, （建议） kept, 单选 or 可多选 stated. Omitting a bullet is a failed card. End with this line and nothing after it: `回复「按默认」，或按 1–5 写出要的项。单选只留一项。可多选没写上的不进笔记。（建议）不会自动算选中。`
 
 Five questions, Chinese labels, in this order:
 
@@ -90,7 +92,7 @@ How the answer limits the work:
 
 - **分级** is the ceiling. L1 and L2 do not grow into L3 because a later section feels useful.
 - **板块** is the allow-list from both section questions. Unticked cards are not written, even on L3. `l3-default` writes 分类、速览卡、论文速读整组、关键插图、判断整组、关联整组、逐模块、Q&A, then adds any extra ticks. It does not add 每张图的详细推演、关键补充图、细讲配图、假说时间线、Q&A 分题、公众号小块、后续选题、理论问题, or 流程图. `tu-zoom` also turns on when 每张图的详细推演、逐模块, or a Q&A 分题 is selected. A group option writes that whole group; a single card writes only that card. `论文速读` does not replace `全文导读` when both were ticked. `研究历史` is the one-row conflict table. `代表性假说与关键论文` is the timeline writeup. Both stay inside papers this PDF names. `同类论文` stays a short DOI table. `理论问题` is not `后续选题`. `读相关文章` does not start another L3 and does not download new PDFs. If `读相关文章` is ticked and the note does not say how many, ask once for the number on that same second card, not in a later card. A free-text answer such as `可以下` allows open PDFs of papers this article cites, capped at five, preferring ones that already have a local note. Do not stall the note on a failed download. If no PDF was fetched, say so in that section. Do not start another L3.
-- **逐模块** has no fixed list. Dong 2023's modules belong to that paper only. If `zhumokuai` or `l3-default` is selected: extract and read this PDF first, then open **one** second AskQuestion card before writing `## 逐模块`. Title: `这篇的模块，写哪些？` That same call includes `related-n` when 读相关文章 was ticked without a number. Do not ask in a later card. Options for modules come from this paper's result chain, `allow_multiple: true`, plus `all`（这篇的全部模块）. Each label is this paper's own step, one line on what it covers. Do not reuse another note's module titles. Wait. Write only the ticked modules. If none are ticked, write no modules. Other selected 板块 wait for this card too, so the note is written once.
+- **逐模块** has no fixed list. Dong 2023's modules belong to that paper only. If `zhumokuai` or `l3-default` is selected: extract and read this PDF first, then open **one** second card before writing `## 逐模块`. Title: `这篇的模块，写哪些？` That same call includes `related-n` when 读相关文章 was ticked without a number. Do not ask in a later card. Options for modules come from this paper's result chain, `allow_multiple: true`, plus `all`（这篇的全部模块）. Each label is this paper's own step, one line on what it covers. Do not reuse another note's module titles. Use AskQuestion when that tool exists. When it does not, that reply is only the module list and then stop; do not write the note in the same reply. Wait. Write only the ticked modules. If none are ticked, write no modules. Other selected 板块 wait for this card too, so the note is written once.
 - **深度** chooses how far into the paper those sections go. `只读主文`: no crops, no SI download. `主文+主图`: crop 3–6 main figures. `补充材料`: the SI rules below, and only numbers or figures that change a claim.
 - **扩展** is off the main path. `只抽图` crops and stops. If a note for this PDF already exists, either polish option polishes only the ticked 板块 and does not re-extract unless figures are missing. If no note exists, `润色` does not replace the read: write the selected 板块, then run that polish pass on the new draft. Q&A is a 板块, not an extension.
 
@@ -149,7 +151,7 @@ Run this only after Ask first confirms L3, and only for the 板块 and 深度 th
 
 1. **DOI / skip.** Identify the article. Search `NOTES_DIR` for the DOI. Filename: `{year}-{author}-{keywords}-{journal}.md` (no DOI-only names).
 
-2. **Text.** `pdftotext -layout` the PDF into `TMP_DIR`. Rebuild every number from that extract. If the text layer prints a placeholder such as `xx xx xxxx`, leave it as a placeholder. Do not fill it from a screenshot description. If 逐模块 was selected, read this extract and open the second module card before any writing. Module titles come from this paper only. When 读相关文章 is also waiting on a number, that card is the same AskQuestion call.
+2. **Text.** `pdftotext -layout` the PDF into `TMP_DIR`. Rebuild every number from that extract. If the text layer prints a placeholder such as `xx xx xxxx`, leave it as a placeholder. Do not fill it from a screenshot description. If 逐模块 was selected, read this extract and open the second module card before any writing. Module titles come from this paper only. When 读相关文章 is also waiting on a number, put `related-n` on that same second card, whether the card is AskQuestion or the chat list.
 
 3. **Figures.** Crop 3–6 **main** figures:
 
